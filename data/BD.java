@@ -1,9 +1,7 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.List;
 
-//import lists.CoarseList;
 import interfaces.CommonList;
 
 import java.io.*;
@@ -19,8 +17,11 @@ public class BD{
     public ArrayList<Integer> arrayContains = new ArrayList<Integer>();
     public ArrayList<Integer> arrayListSize = new ArrayList<Integer>();
     public ArrayList<String> arraySeconds = new ArrayList<String>();
+    public ArrayList<String> arrayDtHora = new ArrayList<String>();
 
-    public void setStatistics (CommonList<Integer> l,int numItensList,int numThreads,long seconds) {
+    public void setStatistics (CommonList<Integer> l,int numItensList,int numThreads,long seconds,String dtHora) {
+
+        this.arrayDtHora.add(dtHora);
         this.arrayInitList.add(numItensList);
         this.arrayNumThreads.add(numThreads);
         this.arrayAdd.add(l.getAdds());
@@ -32,14 +33,12 @@ public class BD{
 
 
     public void saveStatisticsFile(String lName) {
-        System.out.println("Base de dados : ");
         String dtHora = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
         String path = "C:\\PUCRS\\Mestrado\\Prog.Concorrente\\file_"+lName+"_"+dtHora+".csv";
         try {
             FileWriter csvWriter = new FileWriter(path,false);
             for (int j = 0; j < arrayAdd.size(); j++) {
-                // System.out.println(arrayNumThreads.get(j)+";"+arrayAdd.get(j) + ";"+ arrayRemove.get(j) +";"+arrayContains.get(j)+";"+arrayListSize.get(j)+";");
-                csvWriter.append(   lName+";"+dtHora+";"+
+                csvWriter.append(   lName+";"+arrayDtHora.get(j)+";"+
                                     arrayInitList.get(j)+";"+
                                     arrayNumThreads.get(j)+";"+
                                     arrayAdd.get(j) + ";"+ 
@@ -52,6 +51,8 @@ public class BD{
             }
             csvWriter.flush();
             csvWriter.close();
+            System.out.println("Gerado o arquivo : "+"file_"+lName+"_"+dtHora+".csv");
+
         }catch (IOException e) {
             e.printStackTrace();
         }
