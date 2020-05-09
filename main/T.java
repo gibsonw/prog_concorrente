@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import lists.OptimisticList;
 import lists.FineList;
 import lists.CoarseList;
+import lists.LazyList;
 
 import interfaces.CommonList;
 import data.BD;
@@ -12,14 +13,13 @@ import data.BD;
 import java.util.Random;
 import java.time.Duration;
 import java.time.Instant;
-import java.io.*;
 
 public class T{
 
     int numItensList,numThreads = 0;
     int maxSizeList = 0;
 
-    public static final int tempExecution = 6;
+    public static final int tempExecution = 60;
 
     public Random rand = new Random();
 
@@ -114,17 +114,18 @@ public class T{
         }
     }
 
-
     public static void main(String[] args) {
 
         BD bd = new BD();
         CommonList<Integer>  list;
         // list = new CoarseList<Integer>();
         // list = new OptimisticList<Integer>();
-        list = new FineList<Integer>();
+        // list = new FineList<Integer>();
+        list = new LazyList<Integer>();
         String listName = "";
 
-        for (int j = 2; j <= 2; j++) {
+        for (int k = 1; k <= 4; k++) {
+            for (int j = 2; j <= 4; j++) {
             for (int i = 1; i <= 8; i++) {
 
                 T T1 = new T();
@@ -135,15 +136,12 @@ public class T{
                 System.out.println("nomeLista : " + listName);
                 System.out.println("numItensList : " + T1.numItensList);
 
-                list.add(1);
-                System.out.println("size : " + list.size());
-
-
                 T1.setSizeList(list, T1.numItensList);
                 T1.ExecList(bd, list);
 
             }
+            }
+            bd.saveStatisticsFile(listName);
         }
-        bd.saveStatisticsFile(listName);
     }
 }

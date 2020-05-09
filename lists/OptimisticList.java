@@ -181,6 +181,7 @@ public class OptimisticList<T> implements CommonList<T> {
       curr = curr.next;
     }
   }
+  
   public int size() {
     int i=0;
     Entry curr = this.head.next;; // sentinel node;
