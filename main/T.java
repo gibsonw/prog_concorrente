@@ -16,27 +16,29 @@ import java.time.Instant;
 
 public class T{
 
-    int numItensList,numThreads = 0;
+    int numItensList = 0;
+    int numThreads = 0;
     int maxSizeList = 0;
 
     public static final int tempExecution = 60;
 
     public Random rand = new Random();
 
-    public void setListSizeBeg(int param) {
+    public void setParamList(int paramSizeList,int paramThreads) {
 
-        this.numItensList = (int) Math.pow(10, param);
-        this.maxSizeList = (int) (this.numItensList * 2);
+        this.numItensList = (int) Math.pow(10, paramSizeList);
+        this.maxSizeList  = (int) (this.numItensList * 2); // number max used in random ganerator, double size of initial list keep list balanced if add e removes are equal
+        this.numThreads   = (int) (paramThreads * 2);
     }
 
-    public void setSizeList(CommonList<Integer> list, int numSizeList) {
+    public void setInitList(CommonList<Integer> list) {
 
-        int numOperations = numSizeList;
+        int numOperations = this.numItensList;
         int numItem = 0;
 
-        while (list.size() != numSizeList){
+        while (list.size() != this.numItensList){
 
-            numOperations = numSizeList - list.size();
+            numOperations = this.numItensList - list.size();
             numItem = rand.nextInt(this.maxSizeList);
 
             if (numOperations > 0){
@@ -130,13 +132,12 @@ public class T{
 
                 T T1 = new T();
                 listName = list.getListName();
-                T1.setListSizeBeg(j);
-                T1.numThreads =  i*2;
+                T1.setParamList(j,i);
 
                 System.out.println("nomeLista : " + listName);
-                System.out.println("numItensList : " + T1.numItensList);
+                System.out.println("numItensList : " + list.size());
 
-                T1.setSizeList(list, T1.numItensList);
+                T1.setInitList(list);
                 T1.ExecList(bd, list);
 
             }
