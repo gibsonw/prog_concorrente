@@ -36,7 +36,7 @@ public class BD{
 
     public void saveStatisticsFile() {
         String dtHora = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
-        String path = "C:\\PUCRS\\Mestrado\\Prog.Concorrente\\file"+"_"+dtHora+".csv";
+        String path = "C:\\PUCRS\\Mestrado\\Prog.Concorrente\\code\\data\\file"+"_"+dtHora+".csv";
         try {
             FileWriter csvWriter = new FileWriter(path,false);
             for (int j = 0; j < arrayAdd.size(); j++) {

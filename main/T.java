@@ -134,7 +134,7 @@ public class T{
         list[2] = new OptimisticList<Integer>();
         list[3] = new LazyList<Integer>();
 
-        for (int p = 0; p <= 1; p++) { // numero de execuções
+        for (int p = 0; p <= 3; p++) { // numero de execuções
             for (int k = 0; k <= 3; k++) { //lista
                 switch (k) {
                     case 0:
@@ -151,7 +151,7 @@ public class T{
                         break;
                     }
                 for (int j = 2; j <= 5; j++) { // tamanho da lista
-                for (int i = 1; i <= 2; i++) { // numero de Threads
+                for (int i = 1; i <= 10; i++) { // numero de Threads
 
                     T1.setParamList(j,i);
                     System.out.println("nome da lista = "+list[k].getListName());
