@@ -1,0 +1,54 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CoarseList<code_40268254>",
+            "request": "launch",
+            "mainClass": "lists.CoarseList",
+            "projectName": "code_40268254"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-FineList<code_40268254>",
+            "request": "launch",
+            "mainClass": "lists.FineList",
+            "projectName": "code_40268254"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OptimisticList<code_40268254>",
+            "request": "launch",
+            "mainClass": "lists.OptimisticList",
+            "projectName": "code_40268254"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-T<code_40268254>",
+            "request": "launch",
+            "mainClass": "main.T",
+            "projectName": "code_40268254"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-FineList",
+            "request": "launch",
+            "mainClass": "lists.FineList"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OptimisticList",
+            "request": "launch",
+            "mainClass": "lists.OptimisticList"
+        }
+    ]
+}

@@ -8,7 +8,6 @@ import lists.LazyList;
 import interfaces.CommonList;
 import data.BD;
 
-import java.util.logging.Logger;
 import java.util.Random;
 import java.time.Duration;
 import java.time.Instant;
@@ -120,6 +119,11 @@ public class T{
     }
 
     public static void main(String[] args) {
+        
+        int numMaxExecs = 1;
+        int numListsToTest = 1;  // todas = 3
+        int numMaxSizeList = 2;  // 2=100, 3=1000, 4=10000, 5=100000 -> pow(10,numMaxSizeList)
+        int numMaxThreads = 2;   // 2=4, 3=6, 4=8 -> numMaxThreads * 2 
 
         BD bd = new BD();
         CommonList<Integer>[] list = new CommonList[4];
@@ -134,8 +138,8 @@ public class T{
         list[2] = new OptimisticList<Integer>();
         list[3] = new LazyList<Integer>();
 
-        for (int p = 0; p <= 3; p++) { // numero de execuções
-            for (int k = 0; k <= 3; k++) { //lista
+        for (int p = 0; p <= numMaxExecs; p++) { // numero de execuções
+            for (int k = 0; k <= numListsToTest; k++) { //lista
                 switch (k) {
                     case 0:
                         list[0] = new CoarseList<Integer>();
@@ -150,8 +154,8 @@ public class T{
                         list[3] = new LazyList<Integer>();
                         break;
                     }
-                for (int j = 2; j <= 5; j++) { // tamanho da lista
-                for (int i = 1; i <= 10; i++) { // numero de Threads
+                for (int j = 2; j <= numMaxSizeList; j++) { // tamanho da lista
+                for (int i = 1; i <= numMaxThreads; i++) { // numero de Threads
 
                     T1.setParamList(j,i);
                     System.out.println("nome da lista = "+list[k].getListName());
