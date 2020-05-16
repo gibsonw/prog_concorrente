@@ -4,6 +4,7 @@ import lists.OptimisticList;
 import lists.FineList;
 import lists.CoarseList;
 import lists.LazyList;
+import lists.LockFreeList;
 
 import interfaces.CommonList;
 import data.BD;
@@ -120,13 +121,13 @@ public class T{
 
     public static void main(String[] args) {
         
-        int numMaxExecs = 1;
-        int numListsToTest = 1;  // todas = 3
-        int numMaxSizeList = 2;  // 2=100, 3=1000, 4=10000, 5=100000 -> pow(10,numMaxSizeList)
-        int numMaxThreads = 2;   // 2=4, 3=6, 4=8 -> numMaxThreads * 2 
+        int numMaxExecs = 3;
+        int numListsToTest = 4;  // todas = 3
+        int numMaxSizeList = 5;  // 2=100, 3=1000, 4=10000, 5=100000 -> pow(10,numMaxSizeList)
+        int numMaxThreads = 10;   // 2=4, 3=6, 4=8 -> numMaxThreads * 2 
 
         BD bd = new BD();
-        CommonList<Integer>[] list = new CommonList[4];
+        CommonList<Integer>[] list = new CommonList[5];
 
         // list = new CoarseList<Integer>();
         // list = new OptimisticList<Integer>();
@@ -137,21 +138,25 @@ public class T{
         list[1] = new FineList<Integer>();
         list[2] = new OptimisticList<Integer>();
         list[3] = new LazyList<Integer>();
+        list[4] = new LockFreeList<Integer>();
 
         for (int p = 0; p <= numMaxExecs; p++) { // numero de execuções
-            for (int k = 0; k <= numListsToTest; k++) { //lista
+            for (int k = numListsToTest; k <= numListsToTest; k++) { //lista
                 switch (k) {
                     case 0:
-                        list[0] = new CoarseList<Integer>();
+                        list[k] = new CoarseList<Integer>();
                         break;
                     case 1:
-                        list[1] = new FineList<Integer>();
+                        list[k] = new FineList<Integer>();
                         break;
                     case 2:
-                        list[2] = new OptimisticList<Integer>();
+                        list[k] = new OptimisticList<Integer>();
                         break;
                     case 3:
-                        list[3] = new LazyList<Integer>();
+                        list[k] = new LazyList<Integer>();
+                        break;
+                    case 4:
+                        list[k] = new LockFreeList<Integer>();
                         break;
                     }
                 for (int j = 2; j <= numMaxSizeList; j++) { // tamanho da lista

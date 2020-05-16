@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LockFreeList",
+            "request": "launch",
+            "mainClass": "lists.LockFreeList",
+            "projectName": "code_40268254"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"

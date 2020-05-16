@@ -43,7 +43,6 @@ public class OptimisticList<T> implements CommonList<T> {
    * @return true iff element was not there already
    */
 
-
     public void resetCountes() {
         this.numAdd = 0;
         this.numRemove = 0;
