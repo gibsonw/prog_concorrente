@@ -91,10 +91,11 @@ public class T{
 
 
     void ExecList(BD bd, CommonList<Integer> list,int numExe) {
-        Instant ini = Instant.now();
-        String numExec = "NumExec_"+numExe;
 
         setInitList(list);
+        
+        Instant ini = Instant.now();
+        String numExec = "NumExec_"+numExe;
 
         for (int i = 0; i < numThreads; i++) {
             new ExecutarList(list).start();
