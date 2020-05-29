@@ -1,3 +1,9 @@
+/*
+PUCRS
+Programação Concorrente - Prof. Fernando Dotti
+Gibson Weinert
+*/
+
 package data;
 
 import java.util.ArrayList;

@@ -1,4 +1,10 @@
 /*
+PUCRS
+Programação Concorrente - Prof. Fernando Dotti
+Gibson Weinert
+*/
+
+/*
  * LockFreeList.java
  *
  * Created on January 4, 2006, 2:41 PM

@@ -1,4 +1,11 @@
 /*
+PUCRS
+Programação Concorrente - Prof. Fernando Dotti
+Gibson Weinert
+*/
+
+
+/*
  * LazyList.java
  *
  * Created on January 4, 2006, 1:41 PM

@@ -1,3 +1,9 @@
+/*
+PUCRS
+Programação Concorrente - Prof. Fernando Dotti
+Gibson Weinert
+*/
+
 package lists;
 
 import java.util.concurrent.locks.Lock;
